@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: radial-gradient(circle at top, #0f172a, #020617);
+    color: #e5e7eb;
+    overflow-x: hidden;
+}
+
+/* General Section Styling */
+section{
+    padding:90px 10%;
+    text-align:center;
+    position: relative;
+}
+
+/* Hero Section */
+.hero{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg, #020617, #0f172a);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated Gradient Orbs */
+.hero::before, .hero::after{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    filter: blur(120px);
+    opacity:0.6;
+    animation: floatBg 8s infinite alternate;
+}
+
+.hero::before{
+    background:#22d3ee;
+    top:10%;
+    left:15%;
+}
+
+.hero::after{
+    background:#6366f1;
+    bottom:10%;
+    right:15%;
+}
+
+@keyframes floatBg{
+    from{transform: translateY(0px);}
+    to{transform: translateY(60px);}
+}
+
+.hero-content{
+    z-index: 2;
+}
+
+/* Profile Image */
+.profile-img{
+    width:170px;
+    border-radius:50%;
+    border:4px solid transparent;
+    background: linear-gradient(#020617, #020617) padding-box,
+                linear-gradient(45deg, cyan, #6366f1, #22d3ee) border-box;
+    animation: float 4s ease-in-out infinite, glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-18px);}
+    100%{transform:translateY(0);}
+}
+
+@keyframes glow{
+    from{box-shadow:0 0 15px cyan;}
+    to{box-shadow:0 0 35px #6366f1;}
+}
+
+/* Headings */
+h1{
+    font-size:3rem;
+    margin-top:20px;
+    background: linear-gradient(90deg, cyan, #818cf8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2{
+    font-size:2rem;
+    margin-bottom:25px;
+    color:#67e8f9;
+}
+
+/* Typing text */
+.typing{
+    font-size:1.4rem;
+    color:#a5b4fc;
+    margin-top:10px;
+    min-height: 30px;
+}
+
+/* Button */
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 36px;
+    color:white;
+    border-radius:40px;
+    background: linear-gradient(90deg, cyan, #6366f1);
+    text-decoration:none;
+    font-weight:600;
+    position: relative;
+    overflow: hidden;
+    transition:0.4s;
+}
+
+.btn::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+    transition:0.6s;
+}
+
+.btn:hover::after{
+    left:100%;
+}
+
+.btn:hover{
+    transform: scale(1.05);
+    box-shadow:0 0 30px rgba(99,102,241,0.8);
+}
+
+/* Glass Sections */
+.about, .skills, .education, .certifications, .contact{
+    background: rgba(255,255,255,0.05);
+    border-radius:25px;
+    margin:50px 0;
+    padding:40px;
+    backdrop-filter: blur(15px);
+    border:1px solid rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Light border animation */
+.about::before, .skills::before, .education::before, 
+.certifications::before, .contact::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:25px;
+    padding:2px;
+    background: linear-gradient(120deg, transparent, cyan, #6366f1, transparent);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: borderMove 6s linear infinite;
+}
+
+@keyframes borderMove{
+    from{background-position:0%;}
+    to{background-position:300%;}
+}
+
+/* Skills */
+.skill{
+    margin:25px 0;
+}
+
+.skill span{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#93c5fd;
+}
+
+.bar{
+    background:#020617;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.progress{
+    height:14px;
+    background: linear-gradient(90deg, cyan, #6366f1, #22d3ee);
+    animation: grow 2s ease-out;
+    border-radius:20px;
+}
+
+@keyframes grow{
+    from{width:0;}
+}
+
+/* Scroll Animation */
+.hidden{
+    opacity:0;
+    transform:translateY(70px) scale(0.95);
+    transition:1s ease;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0) scale(1);
+}
+
+/* Lists */
+ul{
+    list-style:none;
+}
+
+ul li{
+    margin:12px 0;
+    color:#c7d2fe;
+}
+
+/* Contact */
+.contact p{
+    font-size:1.1rem;
+    margin:8px 0;
+    color:#e0e7ff;
+}
